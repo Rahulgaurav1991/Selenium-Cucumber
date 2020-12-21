@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty","json:target/MyReports/report.json"},
         dryRun = false,
         publish = true,
-        //tags = "@Example or @Bills",
+        tags = "@Rahul",
 
         monochrome = false)
 public class TestRunner {

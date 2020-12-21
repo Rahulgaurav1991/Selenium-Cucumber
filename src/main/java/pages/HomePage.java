@@ -1,6 +1,12 @@
 package pages;
 
+import Hooks.BaseHooks;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class HomePage  extends BasePage{
 
@@ -8,7 +14,17 @@ public class HomePage  extends BasePage{
 
     By expected_temp= By.xpath("//span[@class='first']//span");
 
+    By expectedTime=By.xpath("//span[@class='hour']/span");
 
+    By min_temp= By.xpath("//span[@class='minTemp']");
+    By max_temp= By.xpath("//span[@class='maxTemp']");
+
+    By page_scroll =By.xpath("(//a[@class='moreDetails'])[1]");
+
+    By bar=By.xpath("(//span[@class='bar'])[1]");
+
+    By bar_temp1= By.xpath("//div[@class='dayDetails revealed']//span[@class='highTemp swip']//span[@class='temp']");
+    By bar_temp2 =By.xpath("//div[@class='dayDetails revealed']//span[@class='lowTemp swap']//span[@class='temp']");
 
     public String verify_title(String title) throws Exception {
         try{
@@ -43,6 +59,55 @@ public class HomePage  extends BasePage{
             e.printStackTrace();
         }
         return null;
+
+    }
+
+
+
+    public boolean verify_time_difference() throws  Exception{
+        List<Integer> timeDiffList= new ArrayList<>();
+        List<Integer> time = get_text_from_number(expectedTime);
+        for(int i=0;i<time.size();i++){
+            int time1=time.get(i);
+            int time2=time.get(i+1);
+            int timeDiff = 0;
+
+            if(time2>time1)
+                timeDiff = time2 - time1;
+            if(time1>time2)
+                timeDiff = (time2 +12)- time1;
+
+            timeDiffList.add(timeDiff);
+            int occurance = Collections.frequency(timeDiffList, 2);
+            boolean result = (occurance == timeDiffList.size());
+            return result;
+        }
+        return false;
+    }
+    
+    public List<String> getTimelineTempList() throws Exception{
+
+        List<String> list =new ArrayList<>();
+
+        String minTemp = getText_from_element(min_temp).split("˚")[0];
+        String maxTemp = getText_from_element(max_temp).split("˚")[0];
+        list.add(minTemp);
+        list.add(maxTemp);
+        return list;
+        
+        
+    }
+
+    public List<String> getBar_timeLine() throws Exception {
+
+        List<String>list= new ArrayList<>();
+        Javascript_scroll(BaseHooks.get_Driver().findElement(By.xpath("//a[@data-day='0']//span[@class='toggle']")));
+        do_click(bar);
+        String bar_temp = getText_from_element(bar_temp1).split("˚")[0];
+        String bar_temp_second = getText_from_element(bar_temp2).split("˚")[0];
+        return list;
+
+
 
     }
 }

@@ -57,9 +57,8 @@ public class BasePage {
             List<WebElement> elements = wait_for_element_to_display(locator).findElements(locator);
             for (WebElement name : elements) {
                 list.add(name.getText());
-                return list;
-
             }
+            return list;
         }
         catch (Exception e){
             e.printStackTrace();
@@ -67,6 +66,25 @@ public class BasePage {
 
 
         return null;
+    }
+
+    public String get_Text_from_multiple_elements(By locator){
+        String text=null;
+        try {
+
+            List<WebElement> elements = wait_for_element_to_display(locator).findElements(locator);
+            for (WebElement name : elements) {
+                text = name.getText();
+            }
+            return text;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+
+
+
     }
 
     public void Javascript_scroll(WebElement element) throws  Exception{
@@ -88,6 +106,22 @@ public class BasePage {
         }
 
 
+    }
+
+    public List<Integer>get_text_from_number(By locator){
+        try {
+            List<Integer> list = new ArrayList<>();
+            List<String> value = get_Element_from_List(locator);
+            for (String name : value) {
+                list.add(Integer.parseInt(name.replaceAll("[^0-9]", "")));
+
+            }
+            return list;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
