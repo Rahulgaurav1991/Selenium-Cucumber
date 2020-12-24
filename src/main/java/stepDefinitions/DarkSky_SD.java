@@ -11,6 +11,7 @@ import pages.BasePage;
 import pages.HomePage;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class DarkSky_SD {
 
@@ -39,6 +40,8 @@ public class DarkSky_SD {
     @Then("I verify today's lowest and highest temp is displayed correctly")
     public void i_verify_todays_lowest_and_highest_temp_is_displayed_correctly() throws Throwable {
 
+
+        BaseHooks.get_Driver().manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
         homePage.scroll_webpage();
         List<String> actual = homePage.getTimelineTempList();
         homePage.Perform_click();

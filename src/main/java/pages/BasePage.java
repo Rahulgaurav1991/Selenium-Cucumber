@@ -59,13 +59,13 @@ public class BasePage {
     }
 
 
-    public void do_click(By locator){
+    public void do_click(By locator) throws Exception{
 
         wait_for_element_to_display(locator).click();
 
     }
     // to get single text
-    public String getText_from_element(By locator){
+    public String getText_from_element(By locator) throws  Exception{
 
         return wait_for_element_to_display(locator).getText();
 
@@ -112,7 +112,7 @@ public class BasePage {
 
     public void Javascript_scroll(By locator, WebElement element) throws  Exception{
         try {
-            //wait_for_element_to_display(locator);
+            wait_for_element_to_display(locator);
             JavascriptExecutor js = (JavascriptExecutor) BaseHooks.get_Driver();
             js.executeScript("arguments[0].scrollIntoView(true);", element);
         }
@@ -151,6 +151,12 @@ public class BasePage {
 
     public boolean verify_display(WebElement element){
         return element.isDisplayed();
+
+    }
+
+    public  void enter_values(By locator,String value){
+
+        wait_for_element_to_display(locator).sendKeys(value);
 
     }
 

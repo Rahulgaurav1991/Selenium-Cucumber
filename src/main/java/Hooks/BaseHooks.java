@@ -16,8 +16,6 @@ public class BaseHooks {
 
     public static WebDriver driver=null;
 
-
-
     @Before
     public void open_Browser() throws Exception {
         WebDriverManager.chromedriver().setup();

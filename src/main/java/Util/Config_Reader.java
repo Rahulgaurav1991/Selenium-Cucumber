@@ -17,7 +17,7 @@ public class Config_Reader {
 
 
     public static String getURL() throws  Exception {
-        return getProperties().getProperty("Dark_sky_URL");
+        return getProperties().getProperty("Guru_Telecom_URL");
 
     }
 }

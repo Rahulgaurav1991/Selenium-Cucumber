@@ -1,0 +1,185 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-12-30T13:06:59.614Z",
+        "before": [
+          {
+            "result": {
+              "duration": 22254000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.BaseHooks.open_Browser()"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "verify User able to add valid Tariff",
+        "description": "",
+        "id": "user-abe-to-add-tariff-in-his-account;verify-user-able-to-add-valid-tariff",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.BaseHooks.takescreenshot(io.cucumber.java.Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 87000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.BaseHooks.tear_Down()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 35000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "User is at \"Guru99 Telecom\" home page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Guru99 Telecom\"",
+                  "offset": 11
+                }
+              ],
+              "location": "stepDefinitions.GuruTelecom_SD.user_is_at_home_page(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 186000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Add Tariff Plan to Customer should display at home Page",
+            "match": {
+              "location": "stepDefinitions.GuruTelecom_SD.add_tariff_plan_to_customer_should_display_at_home_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1084000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User clicks on Add Tariff Plan to Customer",
+            "match": {
+              "location": "stepDefinitions.GuruTelecom_SD.user_clicks_on_add_tariff_plan_to_customer()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 17000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user navigate to \"Guru99 Add Tariff Plan to Customer\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Guru99 Add Tariff Plan to Customer\"",
+                  "offset": 17
+                }
+              ],
+              "location": "stepDefinitions.GuruTelecom_SD.user_navigate_to_something(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1623000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User enter Customer id as \"910691\" and click on submit button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"910691\"",
+                  "offset": 26
+                }
+              ],
+              "location": "stepDefinitions.GuruTelecom_SD.user_enter_customer_id_as_something_and_click_on_submit_button(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 40000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "it should navigate to traffic selection page",
+            "match": {
+              "location": "stepDefinitions.GuruTelecom_SD.it_should_navigate_to_traffic_selection_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1609000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user able to verify \"500\" at Monthly Rental column and able to select Select Tariff Plans checkbox and click_on add traffic_plan to customer",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"500\"",
+                  "offset": 20
+                }
+              ],
+              "location": "stepDefinitions.GuruTelecom_SD.user_able_to_verify_something_at_monthly_rental_column_and_able_to_select_select_tariff_plans_checkbox_and_clickon_add_trafficplan_to_customer(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 56000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Verify the \"Congratulation Tariff Plan assigned\" is displayed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Congratulation Tariff Plan assigned\"",
+                  "offset": 11
+                }
+              ],
+              "location": "stepDefinitions.GuruTelecom_SD.verify_the_something_is_displayed(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Traffic"
+          }
+        ]
+      }
+    ],
+    "name": "User_abe to add Tariff in his account",
+    "description": "",
+    "id": "user-abe-to-add-tariff-in-his-account",
+    "keyword": "Feature",
+    "uri": "file:Features/GuruTelecome.feature",
+    "tags": []
+  }
+]
