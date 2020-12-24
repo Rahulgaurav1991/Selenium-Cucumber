@@ -149,6 +149,12 @@ public class BasePage {
     }
 
 
+    public boolean verify_display(WebElement element){
+        return element.isDisplayed();
+
+    }
+
+
 
 
 }
