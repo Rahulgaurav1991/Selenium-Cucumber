@@ -1,9 +1,13 @@
 package stepDefinitions;
 
+import Hooks.BaseHooks;
 import constantValues.ConstantUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import pages.BasePage;
 import pages.HomePage;
 
 import java.util.List;
@@ -34,7 +38,12 @@ public class DarkSky_SD {
     }
     @Then("I verify today's lowest and highest temp is displayed correctly")
     public void i_verify_todays_lowest_and_highest_temp_is_displayed_correctly() throws Throwable {
-        Assert.assertEquals(homePage.getTimelineTempList(),homePage.getBar_timeLine());
+
+        homePage.scroll_webpage();
+        List<String> actual = homePage.getTimelineTempList();
+        homePage.Perform_click();
+        List<String> expected = homePage.getBar_timeLine();
+        Assert.assertEquals(actual,expected);
 
 
     }

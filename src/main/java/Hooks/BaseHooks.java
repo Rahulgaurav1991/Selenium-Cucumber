@@ -10,6 +10,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class BaseHooks {
 
     public static WebDriver driver=null;
@@ -22,6 +24,7 @@ public class BaseHooks {
         driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(Config_Reader.getURL());
+        driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
     }
 
         @After(order = 1)
@@ -38,7 +41,7 @@ public class BaseHooks {
     @After(order=0)
     public void tear_Down(){
 
-        //driver.close();
+        driver.close();
     }
 
 

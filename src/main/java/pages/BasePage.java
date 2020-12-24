@@ -1,21 +1,44 @@
 package pages;
 
 import Hooks.BaseHooks;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class BasePage {
 
     //BaseHooks hooks=new BaseHooks();
 
+    public static WebElement webAction(final By locator) {
 
+
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(BaseHooks.get_Driver())
+                .withTimeout(Duration.ofSeconds(50)) // max time
+                .pollingEvery(Duration.ofSeconds(5)) // every 5 seconds
+                .ignoring(NoSuchElementException.class)
+                .ignoring(StaleElementReferenceException.class)
+                .ignoring(ElementClickInterceptedException.class)
+                .ignoring(ElementNotInteractableException.class)
+                .ignoring(Throwable.class)
+                .withMessage(
+                        "Webdriver waited for 50 seconds but still could not find the element therefore Timeout Exception has been thrown");
+
+        WebElement element = wait.until(new Function<WebDriver, WebElement>() {
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(locator);
+            }
+        });
+
+        return element;
+    }
 
 
     public String wait_for_title_display(String title) throws  Exception{
@@ -87,8 +110,9 @@ public class BasePage {
 
     }
 
-    public void Javascript_scroll(WebElement element) throws  Exception{
+    public void Javascript_scroll(By locator, WebElement element) throws  Exception{
         try {
+            //wait_for_element_to_display(locator);
             JavascriptExecutor js = (JavascriptExecutor) BaseHooks.get_Driver();
             js.executeScript("arguments[0].scrollIntoView(true);", element);
         }

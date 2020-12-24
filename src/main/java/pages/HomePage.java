@@ -19,12 +19,13 @@ public class HomePage  extends BasePage{
     By min_temp= By.xpath("//span[@class='minTemp']");
     By max_temp= By.xpath("//span[@class='maxTemp']");
 
-    By page_scroll =By.xpath("(//a[@class='moreDetails'])[1]");
+    By page_scroll =By.xpath("//canvas[@class='ol-unselectable']");
 
-    By bar=By.xpath("(//span[@class='bar'])[1]");
+    By bar=By.xpath("//a[@data-day='0']//span[@class='toggle']");
 
     By bar_temp1= By.xpath("//div[@class='dayDetails revealed']//span[@class='highTemp swip']//span[@class='temp']");
     By bar_temp2 =By.xpath("//div[@class='dayDetails revealed']//span[@class='lowTemp swap']//span[@class='temp']");
+
 
     public String verify_title(String title) throws Exception {
         try{
@@ -98,15 +99,28 @@ public class HomePage  extends BasePage{
         
     }
 
-    public List<String> getBar_timeLine() throws Exception {
+    public void scroll_webpage() throws Exception {
 
+        //wait_for_element_to_display(page_scroll);
+        //Thread.sleep(5000);
+        Javascript_scroll(page_scroll,BaseHooks.get_Driver().findElement(By.xpath("(//div[@class='summary'])[1]")));
+    }
+
+    public List<String> getBar_timeLine() throws Exception {
+        //Perform_click();
         List<String>list= new ArrayList<>();
-        Javascript_scroll(BaseHooks.get_Driver().findElement(By.xpath("//a[@data-day='0']//span[@class='toggle']")));
-        do_click(bar);
         String bar_temp = getText_from_element(bar_temp1).split("˚")[0];
         String bar_temp_second = getText_from_element(bar_temp2).split("˚")[0];
         return list;
+    }
 
+    public void Perform_click(){
+        try {
+            do_click(bar);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
 
     }
