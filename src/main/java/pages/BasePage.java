@@ -149,7 +149,7 @@ public class BasePage {
     }
 
 
-    public boolean verify_display(WebElement element){
+    public boolean verify_display(WebElement element) throws Exception{
         return element.isDisplayed();
 
     }
