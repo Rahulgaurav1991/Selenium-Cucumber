@@ -155,7 +155,6 @@ public class BasePage {
     }
 
     public  void enter_values(By locator,String value){
-    	
     	try {
     		wait_for_element_to_display(locator).sendKeys(value);
     	}
