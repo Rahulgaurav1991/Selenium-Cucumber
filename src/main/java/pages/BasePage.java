@@ -155,8 +155,13 @@ public class BasePage {
     }
 
     public  void enter_values(By locator,String value){
-
-        wait_for_element_to_display(locator).sendKeys(value);
+    	
+    	try {
+    		wait_for_element_to_display(locator).sendKeys(value);
+    	}
+    	catch (Exception e) {
+			e.printStackTrace();
+		}
 
     }
 
