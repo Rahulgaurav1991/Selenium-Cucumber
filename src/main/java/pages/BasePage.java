@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -162,6 +163,17 @@ public class BasePage {
 			e.printStackTrace();
 		}
 
+    }
+    
+    public void select_By_index(By locator, int index) {
+    	try {
+    	wait_for_element_to_display(locator);
+    	new Select(BaseHooks.get_Driver().findElement(locator)).selectByIndex(index);
+    	}
+    	catch (Exception e) {
+			// TODO: handle exception
+    		e.printStackTrace();
+		}
     }
 
 

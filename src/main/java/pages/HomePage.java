@@ -2,29 +2,21 @@ package pages;
 
 import Hooks.BaseHooks;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class HomePage  extends BasePage{
 
-    By current_temp = By.xpath("//span[@class='summary swap']");
-
-    By expected_temp= By.xpath("//span[@class='first']//span");
-
-    By expectedTime=By.xpath("//span[@class='hour']/span");
-
-    By min_temp= By.xpath("//span[@class='minTemp']");
-    By max_temp= By.xpath("//span[@class='maxTemp']");
-
-    By page_scroll =By.xpath("//canvas[@class='ol-unselectable']");
-
-    By bar=By.xpath("//a[@data-day='0']//span[@class='toggle']");
-
-    By bar_temp1= By.xpath("//div[@class='dayDetails revealed']//span[@class='highTemp swip']//span[@class='temp']");
-    By bar_temp2 =By.xpath("//div[@class='dayDetails revealed']//span[@class='lowTemp swap']//span[@class='temp']");
+	private By current_temp = By.xpath("//span[@class='summary swap']");
+	private By expected_temp= By.xpath("//span[@class='first']//span");
+	private By expectedTime=By.xpath("//span[@class='hour']/span");
+	private By min_temp= By.xpath("//span[@class='minTemp']");
+	private By max_temp= By.xpath("//span[@class='maxTemp']");
+	private By page_scroll =By.xpath("//canvas[@class='ol-unselectable']");
+	private By bar=By.xpath("//a[@data-day='0']//span[@class='toggle']");
+	private By bar_temp1= By.xpath("//div[@class='dayDetails revealed']//span[@class='highTemp swip']//span[@class='temp']");
+	private By bar_temp2 =By.xpath("//div[@class='dayDetails revealed']//span[@class='lowTemp swap']//span[@class='temp']");
 
 
     public String verify_title(String title) throws Exception {

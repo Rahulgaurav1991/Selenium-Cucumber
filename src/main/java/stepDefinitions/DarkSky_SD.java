@@ -5,9 +5,6 @@ import constantValues.ConstantUtils;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import pages.BasePage;
 import pages.HomePage;
 
 import java.util.List;
@@ -15,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DarkSky_SD {
 
-    HomePage homePage = new HomePage();
+    private HomePage homePage = new HomePage();
 
     @Given("I am on Darksky Home Page {string}")
     public void i_am_on_darksky_home_page(String title) throws Throwable {

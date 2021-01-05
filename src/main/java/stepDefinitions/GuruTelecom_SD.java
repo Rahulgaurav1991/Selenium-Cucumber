@@ -13,7 +13,7 @@ public class GuruTelecom_SD {
 
     private String Expected_String=null;
 
-    public GuruHomePage guruHomePage=new GuruHomePage();
+    private GuruHomePage guruHomePage=new GuruHomePage();
 
 
     @Given("User is at {string} home page")

@@ -6,23 +6,23 @@ import org.openqa.selenium.By;
 public class GuruHomePage extends BasePage {
 
 
-    By traffic=By.xpath("//section[@id='one']//a[.='Add Tariff Plan to Customer']");
-    By traffic_text= By.id("customer_id");
+    private By traffic=By.xpath("//section[@id='one']//a[.='Add Tariff Plan to Customer']");
+    private By traffic_text= By.id("customer_id");
 
-    By submit_button =By.name("submit");
+    private By submit_button =By.name("submit");
 
-    By header= By.xpath("//header[@class='align-center']//h1");
+    private By header= By.xpath("//header[@class='align-center']//h1");
 
-    By table_value= By.xpath("//thead//th[2]/../../..//td[2]");
+    private By table_value= By.xpath("//thead//th[2]/../../..//td[2]");
 
-    By select_button =By.xpath("//label[@for='sele']/..");
+    private By select_button =By.xpath("//label[@for='sele']/..");
 
-    By add_button =By.name("submit");
+    private By add_button =By.name("submit");
 
-    By scroll = By.xpath("//h2[.='Unapproved Tariff Plans']");
+    private By scroll = By.xpath("//h2[.='Unapproved Tariff Plans']");
 
 
-    By success_message= By.xpath("//section[@id='main']//h2");
+    private By success_message= By.xpath("//section[@id='main']//h2");
 
 
     public String verify_title(String title) throws Exception {
