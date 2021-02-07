@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class GuruHomePage extends BasePage {
 
 
-    By traffic=By.xpath("//section[@id='one']//a[.='Add Tariff Plan to Customer']");
+    private By traffic=By.xpath("//section[@id='one']//a[.='Add Tariff Plan to Customer']");
     By traffic_text= By.id("customer_id");
 
     By submit_button =By.name("submit");
