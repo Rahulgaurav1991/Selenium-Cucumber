@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features = {"Features"},
         glue={"stepDefinitions","Hooks"},
         plugin = {"pretty","json:target/MyReports/report.json"},
-        dryRun = false,
+        //dryRun = true,
         publish = true,
-        tags = "@Traffic",
+        //tags = "@Traffic",
 
         monochrome = false)
 public class TestRunner {

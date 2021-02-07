@@ -111,11 +111,11 @@ public class BasePage {
 
     }
 
-    public void Javascript_scroll(By locator, WebElement element) throws  Exception{
+    public void Javascript_scroll(By locator) throws  Exception{
         try {
             wait_for_element_to_display(locator);
             JavascriptExecutor js = (JavascriptExecutor) BaseHooks.get_Driver();
-            js.executeScript("arguments[0].scrollIntoView(true);", element);
+            js.executeScript("arguments[0].scrollIntoView(true);",BaseHooks.get_Driver().findElement(locator));
         }
         catch (Exception e){
             e.printStackTrace();
@@ -150,8 +150,9 @@ public class BasePage {
     }
 
 
-    public boolean verify_display(WebElement element) throws Exception{
-        return element.isDisplayed();
+    public boolean verify_display(By locator) throws Exception{
+        wait_for_element_to_display(locator);
+        return BaseHooks.get_Driver().findElement(locator).isDisplayed();
 
     }
 
@@ -164,6 +165,16 @@ public class BasePage {
 		}
 
     }
+
+    public  void enter_values_with_Tab_out(By locator,String value){
+        try {
+            wait_for_element_to_display(locator).sendKeys(value,Keys.TAB);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
     
     public void select_By_index(By locator, int index) {
     	try {
@@ -174,6 +185,20 @@ public class BasePage {
 			// TODO: handle exception
     		e.printStackTrace();
 		}
+    }
+
+    public void get_Attribute(By locator, String value){
+
+        try{
+            wait_for_element_to_display(locator);
+            BaseHooks.get_Driver().findElement(locator).getAttribute(value);
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+
     }
 
 
